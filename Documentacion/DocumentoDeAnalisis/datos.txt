@@ -1,6 +1,0 @@
-La primera linea
-La segunda linea
-La tercera linea
-hola
-que tal
-ah
