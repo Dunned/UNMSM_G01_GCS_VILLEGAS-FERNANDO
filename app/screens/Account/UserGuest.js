@@ -15,7 +15,7 @@ export default function UserGuest(){
                 />
             <Text style={styles.title}>Consulta tu perfil de ecoturismo</Text>
             <Text style={styles.description}>
-                Como describiras tu mejor restaurante o tu mejor lugar turistico, busca y 
+                Como describiras tu mejor lugar turistico, busca y 
                 descubre un lugar donde puedas pasarla bien en tus tiempos libres, comenta tu
                 experiencia y calificala
             </Text>

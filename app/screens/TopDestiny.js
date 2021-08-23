@@ -1,10 +1,10 @@
 import React from "react";
 import {View, Text} from "react-native";
 
-export default function Restaurantes(){
+export default function TopDestiny(){
     return(
         <View>
-            <Text>Restaurantes...</Text>
+            <Text>Aquí se encontrará el ranking de Destinos...</Text>
         </View>
     );
 }

@@ -2,11 +2,11 @@ import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Icon } from "react-native-elements";
-import RestaurantsStack from "./RestaurantsStack";
+import DestinyStack from "./DestinyStack";
 import FavoriteStack from "./FavoritesStack";
-import TopRestaurantsStack from "./TopRestaurantsStack";
+import TopDestinyStack from "./TopDestinyStack";
 import SearchStack from "./SearchStack";
-import AccountStack from "./AccountStack";
+import AccountStack from "./CuentaStack";
 
 
 const Tab = createBottomTabNavigator();
@@ -16,7 +16,7 @@ export default function Navigation()
     return (
         <NavigationContainer>
             <Tab.Navigator 
-            initialRouteName="restaurants"
+            initialRouteName="destinos"
              screenOptions={({route}) => ({
                  tabBarActiveTintColor:"#00a680",
                  tabBarInactiveTintColor:"#646464",
@@ -30,11 +30,11 @@ export default function Navigation()
                  tabBarIcon: ({color}) => screenOptions(route,color),
              })}
             >
-                <Tab.Screen name = "restaurants" component={RestaurantsStack} options={{title:"Restaurantes"}}/>
-                <Tab.Screen name = "favorites" component={FavoriteStack} options={{title:"Favoritos"}}/>
-                <Tab.Screen name = "top-restaurants" component={TopRestaurantsStack} options={{title:"Top 5"}}/>
-                <Tab.Screen name = "search" component={SearchStack} options={{title:"Buscar"}}/>
-                <Tab.Screen name = "account" component={AccountStack} options={{title:"Cuenta"}}/>
+                <Tab.Screen name = "destinos" component={DestinyStack} options={{title:"Destinos"}}/>
+                <Tab.Screen name = "favoritos" component={FavoriteStack} options={{title:"Favoritos"}}/>
+                <Tab.Screen name = "top-destinos" component={TopDestinyStack} options={{title:"Top 5"}}/>
+                <Tab.Screen name = "busqueda" component={SearchStack} options={{title:"Buscar"}}/>
+                <Tab.Screen name = "cuenta" component={AccountStack} options={{title:"Cuenta"}}/>
             </Tab.Navigator>
         </NavigationContainer>
     );
@@ -46,19 +46,19 @@ function screenOptions(route, color){
     let iconName;
     
     switch(route.name){
-        case "restaurants":
+        case "destinos":
             iconName = "compass-outline"
             break;
-        case "favorites":
+        case "favoritos":
             iconName = "heart-outline"
             break;
-        case "top-restaurants":
+        case "top-destinos":
             iconName = "star-outline"
             break;
-        case "search":
+        case "busqueda":
             iconName = "magnify"
             break;
-        case "account":
+        case "cuenta":
             iconName = "home-outline"
             break;
         default:
