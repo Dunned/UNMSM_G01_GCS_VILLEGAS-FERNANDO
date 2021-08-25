@@ -2,6 +2,7 @@ import React from 'react'
 import { StyleSheet, View, Text } from 'react-native'
 import {Avatar} from "react-native-elements";
 import * as firebase from "firebase";
+import { firebaseapp } from "../../utils/firebase";
 import * as Permissions from "expo-permissions";
 import * as ImagePicker from "expo-image-picker";
 export default function InfoUser(props){
@@ -37,16 +38,17 @@ export default function InfoUser(props){
         const response=await fetch(uri);
         const blob =await response.blob();
         console.log(JSON.stringify(blob));
-        const ref=firebase.storage().ref().child(`avatar/${uid}`);
+        const ref=firebaseapp.storage().ref().child(`avatar/${uid}`);
         return ref.put(blob);
     };
     const updatePhotoUrl = () =>{
-        firebase.storage().ref(`avatar/${uid}`).getDownloadURL().then(async(response) =>{
+        
+        firebaseapp.storage().ref(`avatar/${uid}`).getDownloadURL().then(async(response) =>{
             const update = {
                 photoURL: response,
             };
-            
-            await firebase.auth().currentUser.updateProfile(update);
+            console.log(JSON.stringify(response));
+            await firebaseapp.auth().currentUser.updateProfile(update);
             setLoading(false);
         }).catch(()=>{
             toastRef.current.show("Error al actualizar el avatar.");
